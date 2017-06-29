@@ -86,7 +86,7 @@ public class TypeManager {
         mTypeList.add(new MType(3, "热门/新技术"));
         mTypeList.add(new MType(4, "开源项目"));
         mTypeList.add(new MType(5, "面试"));
-        mTypeList.add(new MType(6, ""));
+//        mTypeList.add(new MType(6, ""));
         return mTypeList;
     }
 
