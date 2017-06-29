@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.madreain.androiddream.ui.Activity.ShareKnowledgeActivity">
+
+    <include layout="@layout/actionbar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/dp20"
+        android:text="@string/share"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/sp16" />
+
+    <com.madreain.androiddream.views.LineEditText
+        android:id="@+id/edt_title"
+        style="@style/ShareKnowledge"
+        android:hint="@string/title"
+        android:maxLength="20" />
+
+    <com.madreain.androiddream.views.LineEditText
+        android:id="@+id/edt_desc"
+        style="@style/ShareKnowledge"
+        android:hint="@string/desc"
+        android:maxLength="50" />
+
+
+    <com.madreain.androiddream.views.LineEditText
+        android:id="@+id/edt_author"
+        style="@style/ShareKnowledge"
+        android:hint="@string/author"
+        android:maxLength="20" />
+
+    <com.madreain.androiddream.views.LineEditText
+        android:id="@+id/edt_sorce"
+        style="@style/ShareKnowledge"
+        android:hint="@string/sorce"
+        android:maxLength="20" />
+
+    <com.madreain.androiddream.views.LineEditText
+        android:id="@+id/edt_url"
+        style="@style/ShareKnowledge"
+        android:hint="@string/url" />
+
+    <com.madreain.androiddream.views.LineEditText
+        android:id="@+id/edt_email"
+        style="@style/ShareKnowledge"
+        android:hint="@string/email" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="@dimen/dp10"
+        android:paddingLeft="@dimen/dp10"
+        android:paddingRight="@dimen/dp10"
+        android:paddingStart="@dimen/dp10"
+        android:text="@string/share_desc"
+        android:textColor="@color/Black"
+        android:textSize="@dimen/sp14" />
+
+    <TextView
+        android:id="@+id/txt_send"
+        android:layout_width="@dimen/dp200"
+        android:layout_height="@dimen/dp48"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_blue"
+        android:gravity="center"
+        android:text="@string/send"
+        android:textColor="@color/White" />
+
+</LinearLayout>

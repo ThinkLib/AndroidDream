@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.Activity.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/cotentID"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/MB2B2B2"
+        />
+
+    <RadioGroup
+        android:id="@+id/RG_rg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/RB_review"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp40"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:textColor="@color/selector_title"
+            android:text="@string/review"
+            android:textSize="@dimen/sp14" />
+
+        <RadioButton
+            android:id="@+id/RB_selfstudy"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp40"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="@string/self_study"
+            android:textColor="@color/selector_title"
+            android:textSize="@dimen/sp14" />
+
+        <RadioButton
+            android:id="@+id/RB_set"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp40"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="@string/set"
+            android:textColor="@color/selector_title"
+            android:textSize="@dimen/sp14" />
+
+    </RadioGroup>
+</LinearLayout>

@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">掘梦</string>
+    <string name="review">复习</string>
+    <string name="self_study">自学</string>
+    <string name="set">设置</string>
+
+    <!--//新的下拉刷新-->
+    <string name="cube_ptr_pull_down">下拉</string>
+    <string name="cube_ptr_pull_down_to_refresh">下拉刷新</string>
+    <string name="cube_ptr_release_to_refresh">释放刷新</string>
+    <string name="cube_ptr_refreshing">加载中...</string>
+    <string name="cube_ptr_refresh_complete">更新完成.</string>
+
+    <string name="cube_ptr_last_update">上次更新:&#160;</string>
+    <string name="cube_ptr_seconds_ago">&#160;秒之前</string>
+    <string name="cube_ptr_minutes_ago">&#160;分钟之前</string>
+    <string name="cube_ptr_hours_ago">&#160;小时之前</string>
+    <string name="txt_set">设置</string>
+    <string name="txt_message_clean">清除缓存</string>
+    <string name="txt_faq">意见反馈</string>
+    <string name="txt_about">关于掘梦</string>
+    <string name="txt_share">推荐掘梦</string>
+    <string name="txt_update">更新版本</string>
+    <string name="github">github地址，欢迎star和fork</string>
+    <string name="add_qq">如需更多帮助\n请加官方QQ群：143565027</string>
+
+    <string name="umeng_home_title">U-Share产品Demo</string>
+    <string name="umeng_home_update">新版更新内容</string>
+    <string name="umeng_share_title">分享</string>
+    <string name="umeng_auth_title">授权</string>
+    <string name="umeng_delauth_title">删除授权</string>
+    <string name="umeng_getinfo_title">获取用户信息</string>
+    <string name="umeng_check_title">自检工具</string>
+    <string name="umeng_menu_title">分享菜单模板</string>
+
+    <string name="umeng_check_sign">检查签名</string>
+    <string name="umeng_check_sina">检查新浪</string>
+    <string name="umeng_check_wx">检查微信</string>
+    <string name="umeng_check_alipay">检查支付宝</string>
+    <string name="umeng_check_qq">检查qq</string>
+    <string name="umeng_check_fb">检查facebook</string>
+    <string name="umeng_check_vk">vkontakte</string>
+    <string name="umeng_choose_style">选择分享类型</string>
+
+    <string name="umeng_sharebutton_copy">复制文本</string>
+    <string name="umeng_sharebutton_copyurl">复制连接</string>
+    <string name="start">立即开启</string>
+    <string name="share">你的一份共享，是掘梦的一份荣幸</string>
+    //共享Android资源，让Android未来更好,
+    <string name="title">请输入文章标题</string>
+    <string name="desc">请输入文章相关描述</string>
+    <string name="author">请输入文章作者</string>
+    <string name="sorce">请输入文章来源</string>
+    <string name="url">请输入文章链接</string>
+    <string name="email">请输入你的邮箱，便于后期联系</string>
+    <string name="share_desc">如何提交Android相关文章？\n
+1.请描述上述必要信息并成功发送；\n
+2.掘梦收到邮件后与你联系并确认；\n
+3.确认成功后即可发布到掘梦相关栏目下。\n\n</string>
+    <string name="send">提交文章</string>
+    <string name="submit">提交</string>
+    <string name="feedback">请输入意见反馈</string>
+    <string name="feedback_author">请输入反馈人联系方式</string>
+    <string name="musang">觉得不错，鼓励一下</string>
+    <string name="about">关于掘梦\n\n掘梦是一款有助于Android攻城狮们巩固基础，进价提升的一个资讯阅读APP，掘梦的宗旨就是把所有Android相关所有优秀的文章和框架、控件等第一时间向大家展示，让大家紧跟Android开发的新方向，如果大家有什么好的建议尽管提出来，掘梦设有Android资源共享，有助于你向大家推荐你认为好的文章、框架、控件等，有什么需要改善的，你也可以通过意见反馈向我们反馈。</string>
+    <string name="cancel">取消</string>
+    <string name="weixin">微信</string>
+    <string name="alipay">支付宝</string>
+
+
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--//新的下拉刷新-->
+    <declare-styleable name="PtrFrameLayout">
+        <!-- Optional. If you put header and content in xml, you can you these to specify them. -->
+        <attr name="ptr_header" format="reference" />
+        <attr name="ptr_content" format="reference" />
+
+        <!-- the resistance when you are moving the frame -->
+        <attr name="ptr_resistance" format="float" />
+
+        <!-- the ration of the height of the header to trigger refresh -->
+        <attr name="ptr_ratio_of_header_height_to_refresh" format="float" />
+
+        <attr name="ptr_duration_to_close" format="integer" />
+        <attr name="ptr_duration_to_close_header" format="integer" />
+
+        <!-- pull to refresh, otherwise release to refresh, default is release to refresh -->
+        <attr name="ptr_pull_to_fresh" format="boolean" />
+
+        <!-- keep header when refreshing-->
+        <attr name="ptr_keep_header_when_refresh" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="PtrClassicHeader">
+        <attr name="ptr_rotate_ani_time" format="integer" />
+    </declare-styleable>
+
+
+    <!--//圆角-->
+    <declare-styleable name="RoundImageView">
+        <attr name="maskType">
+            <enum name="RECTANGLE" value="0" />
+            <enum name="CIRCLE" value="1" />
+            <enum name="ROUNDRECTANGLE" value="2" />
+            <enum name="ROUNDRECTANGLETOP" value="3" />
+        </attr>
+        <attr name="borderWidth_Ri" format="dimension" />
+        <attr name="borderColor_Ri" format="color|reference" />
+    </declare-styleable>
+
+
+    <!--卡片滑动-->
+    <declare-styleable name="CardStack">
+        <!--卡片背景颜色-->
+        <attr name="card_backgroundColor" format="color"/>
+        <!-- 显示的卡片数量-->
+        <attr name="card_stack_size" format="integer"/>
+        <!--是否无限循环卡片模式-->
+        <attr name="card_enable_loop" format="boolean"/>
+        <!--卡片之间的间距-->
+        <attr name="card_margin" format="dimension"/>
+        <!--卡片拖动时是否跟着旋转-->
+        <attr name="card_enable_rotation" format="boolean"/>
+        <!--卡片方向：向上、向下-->
+        <attr name="card_gravity">
+            <enum name="top" value="48"/>
+            <enum name="bottom" value="80"/>
+        </attr>
+    </declare-styleable>
+
+
+</resources>

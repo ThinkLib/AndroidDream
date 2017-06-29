@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="splash_desc">
+        <item>基础巩固，覆盖方方面面</item>
+        <item>自学视频，提升分分钟钟</item>
+        <item>资源共享，进价点点滴滴</item>
+        <item>掘梦，邀您一起为Android的明天而奋斗</item>
+    </string-array>
+    <array name="splash_icon">
+        <item>@drawable/splash_iv_first</item>
+        <item>@drawable/splash_iv_second</item>
+        <item>@drawable/splash_iv_third</item>
+        <item>@drawable/splash_iv_forth</item>
+    </array>
+    <array name="splash_bg">
+        <item>@color/light_green_500</item>
+        <item>@color/amber_500</item>
+        <item>@color/red_400</item>
+        <item>@color/blue_500</item>
+    </array>
+</resources>
