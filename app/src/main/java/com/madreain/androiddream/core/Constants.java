@@ -24,8 +24,8 @@ public class Constants {
     public static String QQKey="ZErriuIkbZfBDaT7Jnl05CjNbnZGeeKR";
     public static String QQUrl="mqqopensdkapi://bizAgent/qm/qr?url=http%3A%2F%2Fqm.qq.com%2Fcgi-bin%2Fqm%2Fqr%3Ffrom%3Dapp%26p%3Dandroid%26k%3D";
     //有米广告
-    public  static  String YOUMIappId="f880625cf428f835";
-    public  static  String YOUMIappSecret="bf11c190ab3ca97f";
+//    public  static  String YOUMIappId="f880625cf428f835";
+//    public  static  String YOUMIappSecret="bf11c190ab3ca97f";
     //友盟分享的相关
     public  static  String YOUMENG_WEIXIN_AppID="wxbeb7131e958a3e3b";
     public  static  String YOUMENG_WEIXIN_AppSecret="8e76e365950b8c13a55b496bde2ffb99";

@@ -16,6 +16,8 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
 /**
+ * 版本更新检查
+ *
  * @author madreain
  * @desc
  * @time 2017/4/27
@@ -39,6 +41,10 @@ public class ClientUpdateManager {
     }
 
 
+    /**
+     * 版本更新
+     * @param mbValueCallBack
+     */
     public void getClientUpdateConfig(final MBCallback.MBValueCallBack<UpdateVersionModel> mbValueCallBack) {
         BmobQuery<UpdateVersionModel> bmobQuery = new BmobQuery<>();
         bmobQuery.findObjects(new FindListener<UpdateVersionModel>() {

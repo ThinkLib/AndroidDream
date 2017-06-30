@@ -76,7 +76,7 @@ public class SelfStudyManager {
     public List<SelfStudyModel> getDefaultSelfStudyModel() {
         List<SelfStudyModel> selfStudyModellist=new ArrayList<>();
         selfStudyModellist.add(new SelfStudyModel("Android攻城狮的第一门课（入门篇）","本课程涵盖全部Android应用开发的基础，根据技能点的作用分为5个篇章，包括环境篇、控件篇、布局篇、组件篇和通用篇，本课程的目标就是“看得懂、学得会、做得出”，为后续的学习打下夯实的基础。",0, "http://bmob-cdn-10899.b0.upaiyun.com/2017/04/27/f3fe70c7402514fd80aeacc10aa2d067.jpg"));
-        selfStudyModellist.add(new SelfStudyModel("Android攻城狮的第二门课","本课程涵盖全部Android应用开发的基础，根据技能点的作用分为5个篇章，包括环境篇、控件篇、布局篇、组件篇和通用篇，本课程的目标就是“看得懂、学得会、做得出”，为后续的学习打下夯实的基础。",1, "http://bmob-cdn-10899.b0.upaiyun.com/2017/04/27/cf385293408080c88094128512a8ba88.jpg"));
+//        selfStudyModellist.add(new SelfStudyModel("Android攻城狮的第二门课","本课程涵盖全部Android应用开发的基础，根据技能点的作用分为5个篇章，包括环境篇、控件篇、布局篇、组件篇和通用篇，本课程的目标就是“看得懂、学得会、做得出”，为后续的学习打下夯实的基础。",1, "http://bmob-cdn-10899.b0.upaiyun.com/2017/04/27/cf385293408080c88094128512a8ba88.jpg"));
 
         return selfStudyModellist;
     }

@@ -39,6 +39,11 @@ public class ShareKnowledgeManager {
         return instance;
     }
 
+    /**
+     * 提交文章
+     * @param shareKnowledge
+     * @param mbValueCallBack
+     */
     public void addShareKnowledge(ShareKnowledge shareKnowledge, final MBCallback.MBDataCallback mbValueCallBack) {
         //需要用bomb的对象进行存储
         List<BmobObject> bmobObjectList = new ArrayList<BmobObject>();

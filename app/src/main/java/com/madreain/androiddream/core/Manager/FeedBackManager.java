@@ -40,6 +40,11 @@ public class FeedBackManager {
         return instance;
     }
 
+    /**
+     * 意见反馈
+     * @param feedBackModel
+     * @param mbValueCallBack
+     */
     public void addFeedBack(FeedBackModel feedBackModel, final MBCallback.MBDataCallback mbValueCallBack) {
         //需要用bomb的对象进行存储
         List<BmobObject> bmobObjectList = new ArrayList<BmobObject>();
