@@ -180,7 +180,7 @@ public class SetFragment extends Fragment {
         txt_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UMWeb web = new UMWeb(Constants.Madreain);
+                UMWeb web = new UMWeb(Constants.Madreain_BMOB);
                 web.setTitle("掘梦");//标题
                 web.setThumb(new UMImage(mContext,Constants.Madreain_icon));  //缩略图
                 web.setDescription("下载掘梦，了解更多Android前端知识");//描述

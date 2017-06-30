@@ -15,7 +15,8 @@
     <!-- 允许读取手机状态 用于创建BmobInstallation -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
+    <uses-permission android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER" />
+    <!-- //权限 -->
     <application
         android:name=".utils.MadreainApplication"
         android:allowBackup="true"
@@ -32,6 +33,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.hiqes.sample.INTERNAL_ACTION1" />
+                <category android:name="android.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.hiqes.sample.INTERNAL_ACTION2" />
+                <category android:name="android.category.DEFAULT" />
+            </intent-filter>
+
         </activity>
         <activity
             android:name=".ui.Activity.WelcomeActivity"
@@ -63,31 +74,31 @@
             android:name="UMENG_APPKEY"
             android:value="58ed9d5045297d77d3002ba9" />
         <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="madreain" />
-        <meta-data
             android:name="UMENG_MESSAGE_SECRET"
             android:value="c4f4532e409c5ff1c5ef0f489115274c" />
-        <!-- 新浪 -->
-        <activity
-            android:name=".ui.WBShareActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="madreain" />
+        <!--&lt;!&ndash; 新浪 &ndash;&gt;-->
+        <!--<activity-->
+            <!--android:name=".ui.WBShareActivity"-->
+            <!--android:configChanges="keyboardHidden|orientation"-->
+            <!--android:screenOrientation="portrait">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />-->
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
-            android:configChanges="keyboardHidden|orientation"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"-->
+            <!--android:configChanges="keyboardHidden|orientation"-->
+            <!--android:exported="false"-->
+            <!--android:windowSoftInputMode="adjustResize" />-->
 
-        <service
-            android:name="com.sina.weibo.sdk.net.DownloadService"
-            android:exported="false" />
+        <!--<service-->
+            <!--android:name="com.sina.weibo.sdk.net.DownloadService"-->
+            <!--android:exported="false" />-->
         <!-- 微信 -->
         <activity
             android:name=".ui.wxapi.WXEntryActivity"
@@ -109,6 +120,8 @@
                 <data android:scheme="tencent100424468" />
             </intent-filter>
         </activity>
+
+
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -134,56 +147,10 @@
             android:name=".ui.Activity.AboutActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppSplash" />
-        <!-- //有米广告渠道号  http://wiki.youmi.net/Wiki/PromotionChannelIDs -->
-        <meta-data
-            android:name="YOUMI_CHANNEL"
-            android:value="10000" />
-
-        <activity
-            android:name="net.youmi.android.AdBrowser"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
-
-        <service
-            android:name="net.youmi.android.AdService"
-            android:exported="false" />
-
-        <receiver android:name="net.youmi.android.AdReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-        <!-- 有米SDK为了兼容Android N应用间共享文件行为变更而需要配置的FileProvider -->
-        <!-- 这里主要为授予有米SDK拥有打开apk安装界面的功能 -->
-        <!-- 请务必修改 android:authorities 为贵应用的标识，一般为 包名.fileProvider -->
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.madreain.androiddream.fileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_provider" />
-        </provider>
 
         <activity android:name=".ui.Activity.VideoListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppSplash" />
-        <!--//支付宝-->
-        <activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
-        <activity
-            android:name="com.alipay.sdk.auth.AuthActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
 
     </application>
 

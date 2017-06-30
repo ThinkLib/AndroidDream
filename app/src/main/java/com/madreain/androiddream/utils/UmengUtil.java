@@ -21,18 +21,18 @@ public class UmengUtil {
     // TODO: 2017/4/21  http://dev.umeng.com/social/android/operation 第三方账号的设置
     public static void share(Activity activity, UMWeb umWeb) {
 
-        ShareBoardConfig shareBoardConfig = new ShareBoardConfig();
-        //设置分享显示在什么位置
-//        shareBoardConfig.setShareboardPostion(ShareBoardConfig.SHAREBOARD_POSITION_BOTTOM);
-        shareBoardConfig.setMenuItemBackgroundShape(ShareBoardConfig.BG_SHAPE_CIRCULAR);
-        shareBoardConfig.setCancelButtonVisibility(true);
-//        shareBoardConfig.setShareboardBackgroundColor(activity.getResources().getColor(R.color.M4A4D4F));
-//        shareBoardConfig.setTitleTextColor(activity.getResources().getColor(R.color.MD9D9D9));
-        shareBoardConfig.setTitleVisibility(false);
-//        shareBoardConfig.setMenuItemTextColor(activity.getResources().getColor(R.color.MD9D9D9));
-        shareBoardConfig.setMenuItemIconPressedColor(activity.getResources().getColor(R.color.MFFFFFF));
-        shareBoardConfig.setCancelButtonVisibility(false);
-        shareBoardConfig.setIndicatorVisibility(false);
+//        ShareBoardConfig shareBoardConfig = new ShareBoardConfig();
+//        //设置分享显示在什么位置
+////        shareBoardConfig.setShareboardPostion(ShareBoardConfig.SHAREBOARD_POSITION_BOTTOM);
+//        shareBoardConfig.setMenuItemBackgroundShape(ShareBoardConfig.BG_SHAPE_CIRCULAR);
+//        shareBoardConfig.setCancelButtonVisibility(true);
+////        shareBoardConfig.setShareboardBackgroundColor(activity.getResources().getColor(R.color.M4A4D4F));
+////        shareBoardConfig.setTitleTextColor(activity.getResources().getColor(R.color.MD9D9D9));
+//        shareBoardConfig.setTitleVisibility(false);
+////        shareBoardConfig.setMenuItemTextColor(activity.getResources().getColor(R.color.MD9D9D9));
+//        shareBoardConfig.setMenuItemIconPressedColor(activity.getResources().getColor(R.color.MFFFFFF));
+//        shareBoardConfig.setCancelButtonVisibility(false);
+//        shareBoardConfig.setIndicatorVisibility(false);
 //        shareBoardConfig.setMenuItemBackgroundColor(activity.getResources().getColor(R.color.M4A4D4F));
 
 
@@ -66,7 +66,7 @@ public class UmengUtil {
                         Toast.makeText(MadreainApplication.getContext(), platform + " 分享取消了", Toast.LENGTH_SHORT).show();
                     }
                 })
-                .open(shareBoardConfig);
+                .open();
     }
 
 }

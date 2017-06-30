@@ -1,6 +1,5 @@
 package com.madreain.androiddream.utils;
 
-import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
@@ -16,7 +15,6 @@ import com.umeng.message.entity.UMessage;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 
-import net.youmi.android.AdManager;
 
 import cn.bmob.v3.Bmob;
 
@@ -74,7 +72,7 @@ public class MadreainApplication extends MultiDexApplication {
         * 参数2：APPID，平台注册时得到,注意替换成你的appId
         * 参数3：是否开启调试模式，调试模式下会输出'CrashReport'tag的日志
         */
-        CrashReport.initCrashReport(getApplicationContext(), Constants.Bugly_appId, true);
+        CrashReport.initCrashReport(getApplicationContext(), Constants.Bugly_appId, false);
 
         //友盟分享
         PlatformConfig.setWeixin(Constants.YOUMENG_WEIXIN_AppID,Constants.YOUMENG_WEIXIN_AppSecret);
@@ -83,8 +81,8 @@ public class MadreainApplication extends MultiDexApplication {
         UMShareAPI.get(this);
 
 
-        //有米广告
-        AdManager.getInstance(context).init(Constants.YOUMIappId, Constants.YOUMIappSecret, true);
+//        //有米广告
+//        AdManager.getInstance(context).init(Constants.YOUMIappId, Constants.YOUMIappSecret, true);
 
         //友盟的push版本更新
         PushAgent mPushAgent = PushAgent.getInstance(this);

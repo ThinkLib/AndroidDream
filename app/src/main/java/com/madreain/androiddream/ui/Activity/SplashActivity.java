@@ -25,9 +25,6 @@ import com.madreain.androiddream.R;
 import com.madreain.androiddream.utils.SharedPreferencesUtil;
 import com.umeng.analytics.MobclickAgent;
 
-import net.youmi.android.normal.spot.SplashViewSettings;
-import net.youmi.android.normal.spot.SpotListener;
-import net.youmi.android.normal.spot.SpotManager;
 
 /**
  * @author madreain
@@ -235,8 +232,6 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // 开屏展示界面的 onDestroy() 回调方法中调用
-        SpotManager.getInstance(mContext).onDestroy();
     }
 
 }
