@@ -14,11 +14,6 @@ import android.widget.RelativeLayout;
 import com.madreain.androiddream.R;
 import com.madreain.androiddream.utils.PermissionHelper;
 
-import net.youmi.android.AdManager;
-import net.youmi.android.normal.common.ErrorCode;
-import net.youmi.android.normal.spot.SplashViewSettings;
-import net.youmi.android.normal.spot.SpotListener;
-import net.youmi.android.normal.spot.SpotManager;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -80,8 +75,8 @@ public class WelcomeActivity extends AppCompatActivity {
      * 跑应用的逻辑
      */
     private void runApp() {
-        //初始化SDK
-        AdManager.getInstance(mContext).init("85aa56a59eac8b3d", "a14006f66f58d5d7", true);
+//        //初始化SDK
+//        AdManager.getInstance(mContext).init("85aa56a59eac8b3d", "a14006f66f58d5d7", true);
         //设置开屏
         setupSplashAd();
     }
@@ -96,65 +91,65 @@ public class WelcomeActivity extends AppCompatActivity {
                 new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         params.addRule(RelativeLayout.ABOVE, R.id.view_divider);
 
-        // 对开屏进行设置
-        SplashViewSettings splashViewSettings = new SplashViewSettings();
-        //		// 设置是否展示失败自动跳转，默认自动跳转
-        //		splashViewSettings.setAutoJumpToTargetWhenShowFailed(false);
-        // 设置跳转的窗口类
-        splashViewSettings.setTargetClass(SplashActivity.class);
-        // 设置开屏的容器
-        splashViewSettings.setSplashViewContainer(splashLayout);
-
-        // 展示开屏广告
-        SpotManager.getInstance(mContext)
-                .showSplash(mContext, splashViewSettings, new SpotListener() {
-
-                    @Override
-                    public void onShowSuccess() {
-                        Log.d("WelcomeActivity", "开屏展示成功");
-                    }
-
-                    @Override
-                    public void onShowFailed(int errorCode) {
-                        Log.d("WelcomeActivity", "开屏展示失败");
-                        switch (errorCode) {
-                            case ErrorCode.NON_NETWORK:
-                                Log.d("WelcomeActivity", "网络异常");
-                                break;
-                            case ErrorCode.NON_AD:
-                                Log.d("WelcomeActivity", "暂无开屏广告");
-                                break;
-                            case ErrorCode.RESOURCE_NOT_READY:
-                                Log.d("WelcomeActivity", "开屏资源还没准备好");
-                                break;
-                            case ErrorCode.SHOW_INTERVAL_LIMITED:
-                                Log.d("WelcomeActivity", "开屏展示间隔限制");
-                                break;
-                            case ErrorCode.WIDGET_NOT_IN_VISIBILITY_STATE:
-                                Log.d("WelcomeActivity", "开屏控件处在不可见状态");
-                                break;
-                            default:
-                                Log.d("WelcomeActivity", "" + errorCode);
-                                break;
-                        }
-                    }
-
-                    @Override
-                    public void onSpotClosed() {
-                        Log.d("WelcomeActivity", "开屏被关闭");
-                    }
-
-                    @Override
-                    public void onSpotClicked(boolean isWebPage) {
-                        Log.d("WelcomeActivity", "开屏被点击");
-                    }
-                });
+//        // 对开屏进行设置
+//        SplashViewSettings splashViewSettings = new SplashViewSettings();
+//        //		// 设置是否展示失败自动跳转，默认自动跳转
+//        //		splashViewSettings.setAutoJumpToTargetWhenShowFailed(false);
+//        // 设置跳转的窗口类
+//        splashViewSettings.setTargetClass(SplashActivity.class);
+//        // 设置开屏的容器
+//        splashViewSettings.setSplashViewContainer(splashLayout);
+//
+//        // 展示开屏广告
+//        SpotManager.getInstance(mContext)
+//                .showSplash(mContext, splashViewSettings, new SpotListener() {
+//
+//                    @Override
+//                    public void onShowSuccess() {
+//                        Log.d("WelcomeActivity", "开屏展示成功");
+//                    }
+//
+//                    @Override
+//                    public void onShowFailed(int errorCode) {
+//                        Log.d("WelcomeActivity", "开屏展示失败");
+//                        switch (errorCode) {
+//                            case ErrorCode.NON_NETWORK:
+//                                Log.d("WelcomeActivity", "网络异常");
+//                                break;
+//                            case ErrorCode.NON_AD:
+//                                Log.d("WelcomeActivity", "暂无开屏广告");
+//                                break;
+//                            case ErrorCode.RESOURCE_NOT_READY:
+//                                Log.d("WelcomeActivity", "开屏资源还没准备好");
+//                                break;
+//                            case ErrorCode.SHOW_INTERVAL_LIMITED:
+//                                Log.d("WelcomeActivity", "开屏展示间隔限制");
+//                                break;
+//                            case ErrorCode.WIDGET_NOT_IN_VISIBILITY_STATE:
+//                                Log.d("WelcomeActivity", "开屏控件处在不可见状态");
+//                                break;
+//                            default:
+//                                Log.d("WelcomeActivity", "" + errorCode);
+//                                break;
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onSpotClosed() {
+//                        Log.d("WelcomeActivity", "开屏被关闭");
+//                    }
+//
+//                    @Override
+//                    public void onSpotClicked(boolean isWebPage) {
+//                        Log.d("WelcomeActivity", "开屏被点击");
+//                    }
+//                });
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // 开屏展示界面的 onDestroy() 回调方法中调用
-        SpotManager.getInstance(mContext).onDestroy();
+//        // 开屏展示界面的 onDestroy() 回调方法中调用
+//        SpotManager.getInstance(mContext).onDestroy();
     }
 }

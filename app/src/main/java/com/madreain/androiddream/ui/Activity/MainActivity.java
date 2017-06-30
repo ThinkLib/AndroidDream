@@ -31,7 +31,6 @@ import com.madreain.androiddream.utils.MUtil;
 import com.madreain.androiddream.utils.StatusBarUtils;
 import com.umeng.analytics.MobclickAgent;
 
-import net.youmi.android.normal.spot.SpotManager;
 
 /**
  * @author madreain
@@ -253,6 +252,5 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        SpotManager.getInstance(getBaseContext()).onAppExit();
     }
 }
