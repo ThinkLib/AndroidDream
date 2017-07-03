@@ -7,7 +7,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.madreain.androiddream.core.Constants;
-import com.tencent.bugly.crashreport.CrashReport;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UmengNotificationClickHandler;
@@ -72,7 +71,7 @@ public class MadreainApplication extends MultiDexApplication {
         * 参数2：APPID，平台注册时得到,注意替换成你的appId
         * 参数3：是否开启调试模式，调试模式下会输出'CrashReport'tag的日志
         */
-        CrashReport.initCrashReport(getApplicationContext(), Constants.Bugly_appId, false);
+//        CrashReport.initCrashReport(getApplicationContext(), Constants.Bugly_appId, false);
 
         //友盟分享
         PlatformConfig.setWeixin(Constants.YOUMENG_WEIXIN_AppID,Constants.YOUMENG_WEIXIN_AppSecret);
@@ -97,7 +96,7 @@ public class MadreainApplication extends MultiDexApplication {
 
             @Override
             public void onFailure(String s, String s1) {
-
+                Log.d("MadreainApplication", s);
             }
         });
         //处理推送点击行为

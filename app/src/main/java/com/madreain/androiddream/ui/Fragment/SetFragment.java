@@ -29,6 +29,7 @@ import com.madreain.androiddream.utils.DataCleanManager;
 import com.madreain.androiddream.utils.MUtil;
 import com.madreain.androiddream.utils.UmengUtil;
 import com.madreain.androiddream.views.RoundImageView;
+import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 
@@ -336,6 +337,13 @@ public class SetFragment extends Fragment {
     }
 
     public void refreshFragmentData() {
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(mContext).onActivityResult(requestCode, resultCode, data);
 
     }
 }

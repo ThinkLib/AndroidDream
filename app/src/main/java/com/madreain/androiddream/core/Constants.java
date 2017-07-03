@@ -8,6 +8,7 @@ public class Constants {
     public static final String MADREAIN_UA_EXTRA = "madreain" ;
     //app icon
     public  static  final String Madreain_icon="http://bmob-cdn-10899.b0.upaiyun.com/2017/05/02/f281b2f740b3fbee80637cdf738c2019.png";
+//    public  static  final String Madreain_icon="http://bmob-cdn-10899.b0.upaiyun.com/2017/07/02/d0e193eb40cc131e80b19d9f3ace6190.jpeg";
     //bmob服务器key
     public static String BmobID="e2d418341d8c4d8a629d691eca48d54a";
     //bmob请求错误
@@ -28,7 +29,7 @@ public class Constants {
 //    public  static  String YOUMIappSecret="bf11c190ab3ca97f";
     //友盟分享的相关
     public  static  String YOUMENG_WEIXIN_AppID="wxbeb7131e958a3e3b";
-    public  static  String YOUMENG_WEIXIN_AppSecret="8e76e365950b8c13a55b496bde2ffb99";
+    public  static  String YOUMENG_WEIXIN_AppSecret="733588a271b11d911a113735f50713f5";
     public  static  String YOUMENG_QQ_AppID="1106043207";
     public  static  String YOUMENG_QQ_Appkey="sCqvZ0npUkKje78W";
     //bugly

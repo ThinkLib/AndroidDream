@@ -1,5 +1,6 @@
 package com.madreain.androiddream.ui.Activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import com.madreain.androiddream.R;
 import com.madreain.androiddream.core.Constants;
 import com.madreain.androiddream.utils.UmengUtil;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 
@@ -176,4 +178,12 @@ public class GithubActivity extends AppCompatActivity {
         super.onPause();
         MobclickAgent.onPause(this);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+
+    }
+
 }

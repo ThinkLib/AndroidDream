@@ -1,5 +1,6 @@
 package com.madreain.androiddream.ui.Activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -20,6 +21,7 @@ import com.madreain.androiddream.R;
 import com.madreain.androiddream.core.Constants;
 import com.madreain.androiddream.utils.UmengUtil;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.media.UMWeb;
 
@@ -181,5 +183,12 @@ public class WebActivity extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         MobclickAgent.onPause(this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+
     }
 }
