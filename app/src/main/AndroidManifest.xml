@@ -15,7 +15,13 @@
     <!-- 允许读取手机状态 用于创建BmobInstallation -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER" />
+    <!--<uses-permission android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER" />-->
+
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <!-- //权限 -->
     <application
         android:name=".utils.MadreainApplication"
@@ -80,12 +86,16 @@
             android:name="UMENG_CHANNEL"
             android:value="madreain" />
         <!-- 微信 -->
-        <activity
-            android:name=".ui.wxapi.WXEntryActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
+        <activity android:name=".wxapi.WXEntryActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            />
+        <!--<activity-->
+            <!--android:name="wxapi.WXEntryActivity"-->
+            <!--android:configChanges="keyboardHidden|orientation|screenSize"-->
+            <!--android:exported="true"-->
+            <!--android:screenOrientation="portrait"-->
+            <!--android:launchMode="singleInstance"-->
+            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
         <!-- qq -->
         <activity
             android:name="com.tencent.tauth.AuthActivity"

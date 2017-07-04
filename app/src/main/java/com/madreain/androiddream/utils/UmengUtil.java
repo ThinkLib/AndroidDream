@@ -18,7 +18,7 @@ import com.umeng.socialize.utils.Log;
  */
 
 public class UmengUtil {
-    // TODO: 2017/4/21  http://dev.umeng.com/social/android/operation 第三方账号的设置
+    //  http://dev.umeng.com/social/android/operation 第三方账号的设置
     public static void share(Activity activity, UMWeb umWeb) {
 
 //        ShareBoardConfig shareBoardConfig = new ShareBoardConfig();
@@ -37,10 +37,10 @@ public class UmengUtil {
 
 
         new ShareAction(activity)
-                .withMedia(umWeb)
                 .setDisplayList(SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.WEIXIN_FAVORITE,
 //                        SHARE_MEDIA.SINA,
                         SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE)
+                .withMedia(umWeb)
                 .setCallback(new UMShareListener() {
                     @Override
                     public void onStart(SHARE_MEDIA share_media) {

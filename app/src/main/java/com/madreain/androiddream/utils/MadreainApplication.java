@@ -11,6 +11,7 @@ import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
 import com.umeng.message.UmengNotificationClickHandler;
 import com.umeng.message.entity.UMessage;
+import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 
@@ -73,11 +74,14 @@ public class MadreainApplication extends MultiDexApplication {
         */
 //        CrashReport.initCrashReport(getApplicationContext(), Constants.Bugly_appId, false);
 
+
+        Config.DEBUG=true;
+        UMShareAPI.get(this);
         //友盟分享
         PlatformConfig.setWeixin(Constants.YOUMENG_WEIXIN_AppID,Constants.YOUMENG_WEIXIN_AppSecret);
         PlatformConfig.setQQZone(Constants.YOUMENG_QQ_AppID,Constants.YOUMENG_QQ_Appkey);
 //        PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com");
-        UMShareAPI.get(this);
+
 
 
 //        //有米广告

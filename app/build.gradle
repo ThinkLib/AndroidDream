@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.3"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.madreain.androiddream"
         minSdkVersion 16
@@ -22,15 +22,15 @@ android {
         }
     }
 
-//    //友盟
-//    signingConfigs {
-//        debug {
-//            storeFile file('debug.keystore')
-//            storePassword "android"
-//            keyAlias "androiddebugkey"
-//            keyPassword "android"
-//        }
-//    }
+    //友盟
+    signingConfigs {
+        debug {
+            storeFile file('madreain.jks')
+            storePassword "madreain"
+            keyAlias "madreain"
+            keyPassword "madreain"
+        }
+    }
 
     dexOptions {
         jumboMode true
@@ -74,8 +74,8 @@ dependencies {
     //友盟统计
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile files('libs/umeng_social_api.jar')
-    compile files('libs/umeng_shareboard_widget.jar')
-    compile files('libs/umeng_social_shareboard.jar')
+//    compile files('libs/umeng_shareboard_widget.jar')
+//    compile files('libs/umeng_social_shareboard.jar')
     //GSYVideoPlayer  https://github.com/CarGuo/GSYVideoPlayer 视频控件
     compile 'com.github.CarGuo:GSYVideoPlayer:v1.6.3'
     //沉浸式状态栏

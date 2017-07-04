@@ -181,9 +181,9 @@ public class SetFragment extends Fragment {
         txt_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UMWeb web = new UMWeb(Constants.Madreain_BMOB);
+                UMWeb web = new UMWeb(Constants.Madreain);
                 web.setTitle("掘梦");//标题
-                web.setThumb(new UMImage(mContext,Constants.Madreain_icon));  //缩略图
+                web.setThumb(new UMImage(getActivity(),Constants.Madreain_icon));  //缩略图
                 web.setDescription("下载掘梦，了解更多Android前端知识");//描述
                 UmengUtil.share(getActivity(), web);
             }
@@ -343,7 +343,7 @@ public class SetFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        UMShareAPI.get(mContext).onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(getActivity()).onActivityResult(requestCode, resultCode, data);
 
     }
 }

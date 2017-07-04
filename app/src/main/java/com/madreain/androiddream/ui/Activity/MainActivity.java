@@ -30,6 +30,7 @@ import com.madreain.androiddream.R;
 import com.madreain.androiddream.utils.MUtil;
 import com.madreain.androiddream.utils.StatusBarUtils;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.socialize.UMShareAPI;
 
 
 /**
@@ -252,5 +253,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(MainActivity.this).onActivityResult(requestCode, resultCode, data);
+
     }
 }
