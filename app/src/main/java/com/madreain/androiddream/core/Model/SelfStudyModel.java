@@ -8,6 +8,7 @@ import java.io.Serializable;
 import cn.bmob.v3.BmobObject;
 
 /**
+ * 自学
  * @author madreain
  * @desc
  * @time 2017/4/25

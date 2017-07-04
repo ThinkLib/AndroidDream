@@ -3,6 +3,7 @@ package com.madreain.androiddream.core.Model;
 import cn.bmob.v3.BmobObject;
 
 /**
+ * 意见反馈
  * @author madreain
  * @desc
  * @time 2017/4/21

@@ -17,6 +17,7 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.QueryListListener;
 
 /**
+ * 分享文章的接口
  * @author madreain
  * @desc
  * @time 2017/4/20

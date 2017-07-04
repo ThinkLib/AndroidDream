@@ -31,6 +31,7 @@ import cn.bmob.v3.listener.UploadBatchListener;
 import cn.bmob.v3.listener.UploadFileListener;
 
 /**
+ * 视频
  * @author madreain
  * @desc
  * @time 2017/4/25
