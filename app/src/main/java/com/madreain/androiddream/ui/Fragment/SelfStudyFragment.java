@@ -4,20 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.util.Pair;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.madreain.androiddream.R;
@@ -25,12 +19,9 @@ import com.madreain.androiddream.core.Manager.SelfStudyManager;
 import com.madreain.androiddream.core.Manager.VideoManager;
 import com.madreain.androiddream.core.Manager.callback.MBCallback;
 import com.madreain.androiddream.core.Model.SelfStudyModel;
-import com.madreain.androiddream.core.Model.VideoKnowledge;
-import com.madreain.androiddream.library.kprogresshud.KProgressHUD;
 import com.madreain.androiddream.library.wenchao.cardstack.CardStack;
 import com.madreain.androiddream.ui.Activity.ShareKnowledgeActivity;
 import com.madreain.androiddream.ui.Activity.VideoListActivity;
-import com.madreain.androiddream.ui.Activity.VideoPlayerActivity;
 import com.madreain.androiddream.utils.NetworkUtils;
 
 import java.io.File;
@@ -232,7 +223,7 @@ public class SelfStudyFragment extends Fragment {
                     cardsViewHolder.content.setText("");
                 }
                 if (!TextUtils.isEmpty(selfStudyModel.getPic())) {
-                    Glide.with(mContext).load(selfStudyModel.getPic()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(cardsViewHolder.img_v);
+                    Glide.with(mContext).load(selfStudyModel.getPic()).into(cardsViewHolder.img_v);
                 } else {
                     cardsViewHolder.img_v.setImageResource(R.mipmap.ic_launcher);
                 }

@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,13 +22,13 @@ import com.madreain.androiddream.core.Constants;
 import com.madreain.androiddream.core.Manager.ClientUpdateManager;
 import com.madreain.androiddream.core.Manager.callback.MBCallback;
 import com.madreain.androiddream.core.Model.UpdateVersionModel;
-import com.madreain.androiddream.library.kprogresshud.KProgressHUD;
 import com.madreain.androiddream.ui.Activity.AboutActivity;
 import com.madreain.androiddream.ui.Activity.FeedBackActivity;
 import com.madreain.androiddream.ui.Activity.GithubActivity;
 import com.madreain.androiddream.utils.DataCleanManager;
 import com.madreain.androiddream.utils.MUtil;
 import com.madreain.androiddream.utils.UmengUtil;
+import com.madreain.androiddream.views.LoadingView;
 import com.madreain.androiddream.views.RoundImageView;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.media.UMImage;
@@ -60,6 +61,8 @@ public class SetFragment extends Fragment {
     //缓存
     private long chacheSize = 0;
 
+    //loading
+    LoadingView loadingRoundView;
 
     @Nullable
     @Override
@@ -193,16 +196,15 @@ public class SetFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // 友盟版本更新
-                final KProgressHUD hud = KProgressHUD.create(mContext)
-                        .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                        .setCancellable(false)
-                        .setAnimationSpeed(1)
-                        .setDimAmount(0.5f).show();
+
+                loadingRoundView = new LoadingView(mContext);
+                loadingRoundView.setBackgroudColor(Color.parseColor("#66000000"));
+                loadingRoundView.addPartentViewStartLoading(getActivity());
 
                 ClientUpdateManager.getInstance().getClientUpdateConfig(new MBCallback.MBValueCallBack<UpdateVersionModel>() {
                     @Override
                     public void onSuccess(final UpdateVersionModel result) {
-                        hud.dismiss();
+                        loadingRoundView.setSuccess();
                         if (result != null && result.getCversion() != null) {
                             if (result.getState() == 0) {
                                 Toast.makeText(mContext, "已是最新版本", Toast.LENGTH_SHORT).show();
@@ -239,7 +241,7 @@ public class SetFragment extends Fragment {
 
                     @Override
                     public void onError(String code) {
-                        hud.dismiss();
+                        loadingRoundView.setError();
                         Toast.makeText(mContext, "网络异常，请检查网络", Toast.LENGTH_SHORT).show();
 
                     }

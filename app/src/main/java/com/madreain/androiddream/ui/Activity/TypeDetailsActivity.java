@@ -1,6 +1,7 @@
 package com.madreain.androiddream.ui.Activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -24,7 +25,7 @@ import com.madreain.androiddream.library.CommonPullToRefresh.PtrClassicFrameLayo
 import com.madreain.androiddream.library.CommonPullToRefresh.PtrDefaultHandler;
 import com.madreain.androiddream.library.CommonPullToRefresh.PtrFrameLayout;
 import com.madreain.androiddream.library.CommonPullToRefresh.loadmore.OnLoadMoreListener;
-import com.madreain.androiddream.library.kprogresshud.KProgressHUD;
+import com.madreain.androiddream.views.LoadingView;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
@@ -47,8 +48,7 @@ public class TypeDetailsActivity extends AppCompatActivity {
     private ImageView img_add;
 
     //loading
-    KProgressHUD kProgressHUD;
-
+    LoadingView loadingRoundView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,12 +136,11 @@ public class TypeDetailsActivity extends AppCompatActivity {
     }
 
     private void refreshMTKnowledge() {
-        kProgressHUD = KProgressHUD.create(TypeDetailsActivity.this)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setCancellable(true)
-                .setAnimationSpeed(1)
-                .setDimAmount(0.5f)
-                .show();
+
+        loadingRoundView = new LoadingView(TypeDetailsActivity.this);
+        loadingRoundView.setBackgroudColor(Color.parseColor("#66000000"));
+        loadingRoundView.addPartentViewStartLoading(TypeDetailsActivity.this);
+
 
         KnowledgeManager.getInstance().refreshKnowledgeByMid(mid, new MBCallback.MBValueCallBack<List<MTKnowledge>>() {
             @Override
@@ -150,13 +149,13 @@ public class TypeDetailsActivity extends AppCompatActivity {
                 knowledgeAdapter.notifyDataSetChanged();
                 ptrClassicFrameLayout.refreshComplete();
 
-                kProgressHUD.dismiss();
+                loadingRoundView.setSuccess();
             }
 
             @Override
             public void onError(String code) {
                 ptrClassicFrameLayout.refreshComplete();
-                kProgressHUD.dismiss();
+                loadingRoundView.setError();
                 Toast.makeText(TypeDetailsActivity.this, "网络异常，请稍后重试", Toast.LENGTH_SHORT).show();
             }
 
@@ -169,12 +168,10 @@ public class TypeDetailsActivity extends AppCompatActivity {
     }
 
     private void getMoreMTKnowledge() {
-        kProgressHUD = KProgressHUD.create(TypeDetailsActivity.this)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setCancellable(true)
-                .setAnimationSpeed(1)
-                .setDimAmount(0.5f)
-                .show();
+        loadingRoundView = new LoadingView(TypeDetailsActivity.this);
+        loadingRoundView.setBackgroudColor(Color.parseColor("#66000000"));
+        loadingRoundView.addPartentViewStartLoading(TypeDetailsActivity.this);
+
 
         KnowledgeManager.getInstance().getMoreKnowledgeByMid(mtKnowledgeList.size(), mid, new MBCallback.MBValueCallBack<List<MTKnowledge>>() {
             @Override
@@ -187,7 +184,7 @@ public class TypeDetailsActivity extends AppCompatActivity {
                     //加载更多时，没有数据返回时的设置已经到底了
                     ptrClassicFrameLayout.setLodeMoreFinish();
                 }
-                kProgressHUD.dismiss();
+                loadingRoundView.setSuccess();
             }
 
             @Override
@@ -196,7 +193,7 @@ public class TypeDetailsActivity extends AppCompatActivity {
                     ptrClassicFrameLayout.setNetworkAnomalyFinish();
                 } else
                     ptrClassicFrameLayout.loadMoreComplete(true);
-                kProgressHUD.dismiss();
+                loadingRoundView.setError();
                 Toast.makeText(TypeDetailsActivity.this, "网络异常，请稍后重试", Toast.LENGTH_SHORT).show();
             }
 

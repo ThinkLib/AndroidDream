@@ -2,6 +2,7 @@ package com.madreain.androiddream.ui.Activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -19,9 +20,9 @@ import com.madreain.androiddream.R;
 import com.madreain.androiddream.core.Manager.ShareKnowledgeManager;
 import com.madreain.androiddream.core.Manager.callback.MBCallback;
 import com.madreain.androiddream.core.Model.ShareKnowledge;
-import com.madreain.androiddream.library.kprogresshud.KProgressHUD;
 import com.madreain.androiddream.utils.MUtil;
 import com.madreain.androiddream.views.LineEditText;
+import com.madreain.androiddream.views.LoadingView;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -45,7 +46,7 @@ public class ShareKnowledgeActivity extends AppCompatActivity {
     String initialString;
 
     //loading
-    KProgressHUD kProgressHUD;
+    LoadingView loadingRoundView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -207,26 +208,23 @@ public class ShareKnowledgeActivity extends AppCompatActivity {
                                         if (!TextUtils.isEmpty(shareKnowledge.getEmail())) {
                                             if (MUtil.isEmail(shareKnowledge.getEmail())) {
 
-                                                kProgressHUD = KProgressHUD.create(ShareKnowledgeActivity.this)
-                                                        .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                                                        .setCancellable(true)
-                                                        .setAnimationSpeed(1)
-                                                        .setDimAmount(0.5f)
-                                                        .show();
 
+                                                loadingRoundView = new LoadingView(ShareKnowledgeActivity.this);
+                                                loadingRoundView.setBackgroudColor(Color.parseColor("#66000000"));
+                                                loadingRoundView.addPartentViewStartLoading(ShareKnowledgeActivity.this);
 
                                                 //提交文章的接口
                                                 ShareKnowledgeManager.getInstance().addShareKnowledge(shareKnowledge, new MBCallback.MBDataCallback() {
                                                     @Override
                                                     public void onSuccess() {
-                                                        kProgressHUD.dismiss();
+                                                        loadingRoundView.setSuccess();
                                                         Toast.makeText(ShareKnowledgeActivity.this, "文章提交成功，感谢你的共享", Toast.LENGTH_SHORT).show();
                                                         finish();
                                                     }
 
                                                     @Override
                                                     public void onError(String code) {
-                                                        kProgressHUD.dismiss();
+                                                        loadingRoundView.setError();
                                                         Toast.makeText(ShareKnowledgeActivity.this, "文章提交失败，请稍后重试", Toast.LENGTH_SHORT).show();
                                                     }
 

@@ -1,17 +1,15 @@
 package com.madreain.androiddream.core.Manager;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Movie;
 import android.util.Log;
 
 import com.madreain.androiddream.BuildConfig;
 import com.madreain.androiddream.core.Constants;
 import com.madreain.androiddream.core.Manager.callback.MBCallback;
-import com.madreain.androiddream.core.Model.MTKnowledge;
-import com.madreain.androiddream.core.Model.MType;
-import com.madreain.androiddream.core.Model.ShareKnowledge;
 import com.madreain.androiddream.core.Model.VideoKnowledge;
-import com.madreain.androiddream.library.kprogresshud.KProgressHUD;
+import com.madreain.androiddream.views.LoadingView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -180,7 +178,6 @@ public class VideoManager {
 
     }
 
-    KProgressHUD kProgressHUD;
     public void addVideoKnowledgeToServer(Context mContext) {
 //        //上传一个
 //        VideoManager.getInstance().addVideoKnowledge(new File("/storage/emulated/0/BaiduNetdisk/Android攻城狮/Android攻城狮的第一门课（入门篇）(UHD)/1-1 环境组成介绍 (01'47) .mp4"), new MBCallback.MBDataCallback() {
@@ -199,12 +196,7 @@ public class VideoManager {
 //
 //            }
 //        });
-        kProgressHUD = KProgressHUD.create(mContext)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setCancellable(true)
-                .setAnimationSpeed(1)
-                .setDimAmount(0.5f)
-                .show();
+
         //上传多个
         ArrayList<VideoKnowledge> videoKnowledgeArrayList = new ArrayList<>();
 //        videoKnowledgeArrayList.add(new VideoKnowledge(0,0,"1-1 环境组成介绍", "/storage/emulated/0/BaiduNetdisk/Android攻城狮/Android攻城狮的第一门课（入门篇）(UHD)/1-1 环境组成介绍 (01'47) .mp4", new BmobFile(new File("/storage/emulated/0/BaiduNetdisk/Android攻城狮/Android攻城狮的第一门课（入门篇）(UHD)/1-1 环境组成介绍 (01'47) .mp4"))));
@@ -344,7 +336,6 @@ public class VideoManager {
             @Override
             public void onUploadSuccess() {
                 Log.d("VideoManager", "成功");
-                kProgressHUD.dismiss();
             }
 
             @Override
@@ -360,7 +351,6 @@ public class VideoManager {
             @Override
             public void onUploadFail(String code) {
                 Log.d("VideoManager", "失败");
-                kProgressHUD.dismiss();
             }
         });
     }

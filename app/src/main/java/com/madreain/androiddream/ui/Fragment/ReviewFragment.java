@@ -2,6 +2,7 @@ package com.madreain.androiddream.ui.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,13 +16,13 @@ import com.madreain.androiddream.R;
 import com.madreain.androiddream.core.Manager.TypeManager;
 import com.madreain.androiddream.core.Manager.callback.MBCallback;
 import com.madreain.androiddream.core.Model.MType;
-import com.madreain.androiddream.library.kprogresshud.KProgressHUD;
 import com.madreain.androiddream.ui.Activity.AboutActivity;
 import com.madreain.androiddream.ui.Activity.SecondTypeActivity;
 import com.madreain.androiddream.ui.Activity.ShareKnowledgeActivity;
 import com.madreain.androiddream.ui.Activity.TypeDetailsActivity;
 import com.madreain.androiddream.utils.NetworkUtils;
 import com.madreain.androiddream.views.CircleMenuLayout;
+import com.madreain.androiddream.views.LoadingView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,8 @@ public class ReviewFragment extends Fragment {
     private CircleMenuLayout circleMenuLayout;
     private ImageView img_center;
 
-    KProgressHUD kProgressHUD;
+    //loading
+    LoadingView loadingRoundView;
 
     @Nullable
     @Override
@@ -81,12 +83,10 @@ public class ReviewFragment extends Fragment {
     }
 
     private void refreshData() {
-        kProgressHUD = KProgressHUD.create(mContext)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setCancellable(true)
-                .setAnimationSpeed(1)
-                .setDimAmount(0.5f)
-                .show();
+
+        loadingRoundView = new LoadingView(mContext);
+        loadingRoundView.setBackgroudColor(Color.parseColor("#66000000"));
+        loadingRoundView.addPartentViewStartLoading(getActivity());
 
         TypeManager.getInstance().refreshMType(new MBCallback.MBValueCallBack<List<MType>>() {
             @Override
@@ -102,12 +102,12 @@ public class ReviewFragment extends Fragment {
                         R.drawable.home_mbank_4_normal, R.drawable.home_mbank_5_normal,
                         R.drawable.home_mbank_6_normal, R.drawable.home_mbank_1_normal};
                 circleMenuLayout.setMenuItemIconsAndTexts(mItemImgs, mItemTexts);
-                kProgressHUD.dismiss();
+                loadingRoundView.setSuccess();
             }
 
             @Override
             public void onError(String code) {
-                kProgressHUD.dismiss();
+                loadingRoundView.setError();
             }
 
             @Override

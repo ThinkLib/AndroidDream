@@ -1,6 +1,7 @@
 package com.madreain.androiddream.ui.Activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -24,9 +25,8 @@ import com.madreain.androiddream.library.CommonPullToRefresh.PtrClassicFrameLayo
 import com.madreain.androiddream.library.CommonPullToRefresh.PtrDefaultHandler;
 import com.madreain.androiddream.library.CommonPullToRefresh.PtrFrameLayout;
 import com.madreain.androiddream.library.CommonPullToRefresh.loadmore.OnLoadMoreListener;
-import com.madreain.androiddream.library.kprogresshud.KProgressHUD;
 import com.madreain.androiddream.utils.NetworkUtils;
-import com.madreain.androiddream.utils.PixelOrdpManager;
+import com.madreain.androiddream.views.LoadingView;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public class SecondTypeActivity extends AppCompatActivity {
     private ImageView img_add;
 
     //loading
-    KProgressHUD kProgressHUD;
+    LoadingView loadingRoundView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,12 +154,11 @@ public class SecondTypeActivity extends AppCompatActivity {
 
 
     private void refreshSencondType() {
-        kProgressHUD = KProgressHUD.create(SecondTypeActivity.this)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setCancellable(true)
-                .setAnimationSpeed(1)
-                .setDimAmount(0.5f)
-                .show();
+
+        loadingRoundView = new LoadingView(SecondTypeActivity.this);
+        loadingRoundView.setBackgroudColor(Color.parseColor("#66000000"));
+        loadingRoundView.addPartentViewStartLoading(SecondTypeActivity.this);
+
         SecondTypeManager.getInstance().refreshSecondTypeByMid(mid, new MBCallback.MBValueCallBack<List<MSecondType>>() {
             @Override
             public void onSuccess(List<MSecondType> result) {
@@ -167,13 +166,13 @@ public class SecondTypeActivity extends AppCompatActivity {
                 secondTypeAdapter.notifyDataSetChanged();
                 ptrClassicFrameLayout.refreshComplete();
 
-                kProgressHUD.dismiss();
+                loadingRoundView.setSuccess();
             }
 
             @Override
             public void onError(String code) {
                 ptrClassicFrameLayout.refreshComplete();
-                kProgressHUD.dismiss();
+                loadingRoundView.setError();
                 Toast.makeText(SecondTypeActivity.this, "网络异常，请稍后重试", Toast.LENGTH_SHORT).show();
 
             }
@@ -187,12 +186,9 @@ public class SecondTypeActivity extends AppCompatActivity {
     }
 
     private void getMoreSencondType() {
-        kProgressHUD = KProgressHUD.create(SecondTypeActivity.this)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setCancellable(true)
-                .setAnimationSpeed(1)
-                .setDimAmount(0.5f)
-                .show();
+        loadingRoundView = new LoadingView(SecondTypeActivity.this);
+        loadingRoundView.setBackgroudColor(Color.parseColor("#66000000"));
+        loadingRoundView.addPartentViewStartLoading(SecondTypeActivity.this);
 
         SecondTypeManager.getInstance().getMoreSecondTypeByMid(mSecondTypeList.size(), mid, new MBCallback.MBValueCallBack<List<MSecondType>>() {
             @Override
@@ -205,7 +201,7 @@ public class SecondTypeActivity extends AppCompatActivity {
                     //加载更多时，没有数据返回时的设置已经到底了
                     ptrClassicFrameLayout.setLodeMoreFinish();
                 }
-                kProgressHUD.dismiss();
+                loadingRoundView.setSuccess();
             }
 
             @Override
@@ -215,7 +211,7 @@ public class SecondTypeActivity extends AppCompatActivity {
                 } else {
                     ptrClassicFrameLayout.loadMoreComplete(true);
                 }
-                kProgressHUD.dismiss();
+                loadingRoundView.setError();
                 Toast.makeText(SecondTypeActivity.this, "网络异常，请稍后重试", Toast.LENGTH_SHORT).show();
             }
 

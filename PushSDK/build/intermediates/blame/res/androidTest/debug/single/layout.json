@@ -1,6 +1,10 @@
 [
     {
-        "merged": "E:\\AndroidDream\\PushSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\upush_notification.xml",
-        "source": "E:\\AndroidDream\\PushSDK\\build\\intermediates\\bundles\\debug\\res\\layout\\upush_notification.xml"
+        "merged": "/Users/wujun/AndroidStudioProjects/AndroidDream/PushSDK/build/intermediates/res/merged/androidTest/debug/layout/upush_notification.xml",
+        "source": "/Users/wujun/AndroidStudioProjects/AndroidDream/PushSDK/build/intermediates/bundles/debug/res/layout/upush_notification.xml"
+    },
+    {
+        "merged": "/Users/wujun/AndroidStudioProjects/AndroidDream/E:\\AndroidDream\\PushSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\upush_notification.xml",
+        "source": "/Users/wujun/AndroidStudioProjects/AndroidDream/E:\\AndroidDream\\PushSDK\\build\\intermediates\\bundles\\debug\\res\\layout\\upush_notification.xml"
     }
 ]

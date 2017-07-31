@@ -2,6 +2,7 @@ package com.madreain.androiddream.ui.Activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -17,8 +18,8 @@ import com.madreain.androiddream.R;
 import com.madreain.androiddream.core.Manager.FeedBackManager;
 import com.madreain.androiddream.core.Manager.callback.MBCallback;
 import com.madreain.androiddream.core.Model.FeedBackModel;
-import com.madreain.androiddream.library.kprogresshud.KProgressHUD;
 import com.madreain.androiddream.views.LineEditText;
+import com.madreain.androiddream.views.LoadingView;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -36,7 +37,7 @@ public class FeedBackActivity extends AppCompatActivity {
     String defaultFeedBack;
 
     //loading
-    KProgressHUD kProgressHUD;
+    LoadingView loadingRoundView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,24 +109,22 @@ public class FeedBackActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(feedBackModel.getFeedbackContent())) {
                     if (!TextUtils.isEmpty(feedBackModel.getFeedbackContact())) {
 
-                        kProgressHUD = KProgressHUD.create(FeedBackActivity.this)
-                                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                                .setCancellable(true)
-                                .setAnimationSpeed(1)
-                                .setDimAmount(0.5f)
-                                .show();
+
+                        loadingRoundView = new LoadingView(FeedBackActivity.this);
+                        loadingRoundView.setBackgroudColor(Color.parseColor("#66000000"));
+                        loadingRoundView.addPartentViewStartLoading(FeedBackActivity.this);
 
                         FeedBackManager.getInstance().addFeedBack(feedBackModel, new MBCallback.MBDataCallback() {
                             @Override
                             public void onSuccess() {
-                                kProgressHUD.dismiss();
+                                loadingRoundView.setSuccess();
                                 Toast.makeText(FeedBackActivity.this, "意见反馈提交成功，感谢你的反馈", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
 
                             @Override
                             public void onError(String code) {
-                                kProgressHUD.dismiss();
+                                loadingRoundView.setError();
                                 Toast.makeText(FeedBackActivity.this, "意见反馈提交失败，请稍后重试", Toast.LENGTH_SHORT).show();
                             }
 

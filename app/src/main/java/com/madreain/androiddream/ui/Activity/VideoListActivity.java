@@ -1,6 +1,7 @@
 package com.madreain.androiddream.ui.Activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -26,8 +27,7 @@ import com.madreain.androiddream.library.CommonPullToRefresh.PtrClassicFrameLayo
 import com.madreain.androiddream.library.CommonPullToRefresh.PtrDefaultHandler;
 import com.madreain.androiddream.library.CommonPullToRefresh.PtrFrameLayout;
 import com.madreain.androiddream.library.CommonPullToRefresh.loadmore.OnLoadMoreListener;
-import com.madreain.androiddream.library.kprogresshud.KProgressHUD;
-import com.madreain.androiddream.utils.PixelOrdpManager;
+import com.madreain.androiddream.views.LoadingView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,9 +44,9 @@ public class VideoListActivity extends AppCompatActivity {
     List<VideoKnowledge> videoKnowledgeList;
 
     VideoListAdapter videoListAdapter;
-    //loading
-    KProgressHUD kProgressHUD;
 
+    //loading
+    LoadingView loadingRoundView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,25 +143,24 @@ public class VideoListActivity extends AppCompatActivity {
     }
 
     private void refreshVideoList() {
-        kProgressHUD = KProgressHUD.create(VideoListActivity.this)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setCancellable(true)
-                .setAnimationSpeed(1)
-                .setDimAmount(0.5f)
-                .show();
+        loadingRoundView = new LoadingView(VideoListActivity.this);
+        loadingRoundView.setBackgroudColor(Color.parseColor("#66000000"));
+        loadingRoundView.addPartentViewStartLoading(VideoListActivity.this);
+
+
         VideoManager.getInstance().refreshVideoKnowledgeList(selfStudyModel.getSelfid(), new MBCallback.MBValueCallBack<List<VideoKnowledge>>() {
             @Override
             public void onSuccess(List<VideoKnowledge> result) {
                 videoKnowledgeList = result;
                 videoListAdapter.notifyDataSetChanged();
                 ptrClassicFrameLayout.refreshComplete();
-                kProgressHUD.dismiss();
+                loadingRoundView.setSuccess();
             }
 
             @Override
             public void onError(String code) {
                 ptrClassicFrameLayout.refreshComplete();
-                kProgressHUD.dismiss();
+                loadingRoundView.setError();
                 Toast.makeText(VideoListActivity.this, "网络异常，请稍后重试", Toast.LENGTH_SHORT).show();
             }
 
@@ -174,12 +173,10 @@ public class VideoListActivity extends AppCompatActivity {
 
 
     private void getMoreVideoList() {
-        kProgressHUD = KProgressHUD.create(VideoListActivity.this)
-                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-                .setCancellable(true)
-                .setAnimationSpeed(1)
-                .setDimAmount(0.5f)
-                .show();
+        loadingRoundView = new LoadingView(VideoListActivity.this);
+        loadingRoundView.setBackgroudColor(Color.parseColor("#66000000"));
+        loadingRoundView.addPartentViewStartLoading(VideoListActivity.this);
+
         VideoManager.getInstance().getMoreVideoKnowledgeList(videoKnowledgeList.size(), selfStudyModel.getSelfid(), new MBCallback.MBValueCallBack<List<VideoKnowledge>>() {
             @Override
             public void onSuccess(List<VideoKnowledge> result) {
@@ -191,7 +188,7 @@ public class VideoListActivity extends AppCompatActivity {
                     //加载更多时，没有数据返回时的设置已经到底了
                     ptrClassicFrameLayout.setLodeMoreFinish();
                 }
-                kProgressHUD.dismiss();
+                loadingRoundView.setSuccess();
             }
 
             @Override
@@ -201,7 +198,7 @@ public class VideoListActivity extends AppCompatActivity {
                 } else {
                     ptrClassicFrameLayout.loadMoreComplete(true);
                 }
-                kProgressHUD.dismiss();
+                loadingRoundView.setError();
                 Toast.makeText(VideoListActivity.this, "网络异常，请稍后重试", Toast.LENGTH_SHORT).show();
             }
 
