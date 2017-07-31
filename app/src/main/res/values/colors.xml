@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="MBottom">#03aaf4</color>
+    <color name="MBottom">#008aff</color>
     <color name="MDefaultTypeface">#999999</color>
     <color name="MB2B2B2">#b2b2b2</color>
-    <color name="title_bar">#03aaf4</color>
+    <color name="title_bar">#008aff</color>
     <color name="White">#ffffff</color>
     <color name="viewbg">#ededed</color>
     <color name="ll_press">#d7d7d7</color>
