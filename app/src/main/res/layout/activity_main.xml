@@ -37,7 +37,7 @@
             android:gravity="center"
             android:textColor="@color/selector_title"
             android:text="@string/review"
-            android:textSize="@dimen/sp14" />
+            android:textSize="@dimen/sp16" />
 
         <RadioButton
             android:id="@+id/RB_selfstudy"
@@ -49,7 +49,7 @@
             android:gravity="center"
             android:text="@string/self_study"
             android:textColor="@color/selector_title"
-            android:textSize="@dimen/sp14" />
+            android:textSize="@dimen/sp16" />
 
         <RadioButton
             android:id="@+id/RB_set"
@@ -61,7 +61,7 @@
             android:gravity="center"
             android:text="@string/set"
             android:textColor="@color/selector_title"
-            android:textSize="@dimen/sp14" />
+            android:textSize="@dimen/sp16" />
 
     </RadioGroup>
 </LinearLayout>

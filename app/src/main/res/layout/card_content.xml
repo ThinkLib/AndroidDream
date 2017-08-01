@@ -18,8 +18,9 @@
         <ImageView
             android:id="@+id/img_v"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:contentDescription="@null"
+            android:scaleType="fitXY"
             android:src="@mipmap/ic_launcher"/>
 
         <TextView
@@ -28,6 +29,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingTop="@dimen/dp10"
+            android:paddingBottom="@dimen/dp10"
+            android:textSize="@dimen/sp16"
+            android:textColor="@color/MainColor"
             tools:text="Test Text"/>
 
     </LinearLayout>

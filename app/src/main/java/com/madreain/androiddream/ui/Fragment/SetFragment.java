@@ -291,15 +291,15 @@ public class SetFragment extends Fragment {
                                 mDialog.dismiss();
                             }
                         });
-                //微信支付
-                mDialog.findViewById(R.id.weixin)
-                        .setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-
-                                mDialog.dismiss();
-                            }
-                        });
+//                //微信支付
+//                mDialog.findViewById(R.id.weixin)
+//                        .setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//
+//                                mDialog.dismiss();
+//                            }
+//                        });
                 mDialog.show();
 
 

@@ -66,6 +66,7 @@
     <string name="cancel">取消</string>
     <string name="weixin">微信</string>
     <string name="alipay">支付宝</string>
+    <string name="review_detail">&#160;&#160;&#160;&#160;复习模块\n&#160;&#160;&#160;&#160;主要分6大模块来讲解，有助于安卓的提升</string>
 
 
 </resources>

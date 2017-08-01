@@ -28,6 +28,17 @@
             android:src="@mipmap/ic_launcher"
             android:contentDescription="@null" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/review_detail"
+            android:textSize="@dimen/sp16"
+            android:textColor="@color/Black"
+            android:lineSpacingMultiplier="1.4"
+            android:paddingTop="@dimen/dp10"
+
+            />
+
     </RelativeLayout>
 
 </LinearLayout>
