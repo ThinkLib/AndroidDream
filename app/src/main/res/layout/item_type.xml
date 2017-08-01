@@ -6,7 +6,7 @@
     android:minHeight="@dimen/dp40"
     android:gravity="center"
     android:textSize="@dimen/sp16"
-    android:textColor="@color/MBottom"
+    android:textColor="@color/MainColor"
     android:paddingTop="@dimen/dp6"
     android:paddingBottom="@dimen/dp6"
     android:paddingLeft="@dimen/dp6"

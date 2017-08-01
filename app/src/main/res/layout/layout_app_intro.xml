@@ -29,7 +29,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
-            android:textColor="@color/grey_1000_w"
+            android:textColor="@color/White"
             android:textSize="18sp"/>
 
         <Button
@@ -44,7 +44,7 @@
             android:paddingEnd="@dimen/dp10"
             android:text="@string/start"
             android:gravity="center"
-            android:textColor="@color/grey_1000_w"
+            android:textColor="@color/White"
             android:textSize="18sp"/>
     </RelativeLayout>
 

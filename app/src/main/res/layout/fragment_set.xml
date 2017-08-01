@@ -24,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp20"
         android:src="@mipmap/ic_launcher"
-        app:borderColor_Ri="@color/MBottom"
+        app:borderColor_Ri="@color/MainColor"
         app:borderWidth_Ri="@dimen/dp1"
         app:maskType="CIRCLE" />
 
@@ -145,7 +145,7 @@
         android:paddingRight="@dimen/dp16"
         android:paddingTop="@dimen/dp10"
         android:text="@string/github"
-        android:textColor="@color/MBottom"
+        android:textColor="@color/MainColor"
         android:textSize="14sp" />
 
     <TextView

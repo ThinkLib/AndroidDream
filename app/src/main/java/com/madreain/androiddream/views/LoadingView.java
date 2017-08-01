@@ -34,13 +34,13 @@ public class LoadingView extends View {
     //屏幕的宽高
     int mwidth;
     int mheight;
-    int backgroudColor;
+    int backgroudColor=Color.BLACK;
 
     //主
     Paint mPaint;
     //属性
-    int mpaintColor;
-    float mpaintStrokeWidth;
+    int mpaintColor=Color.YELLOW;
+    float mpaintStrokeWidth=16;
 
     Path mPath;
     //转圈的半径
@@ -74,9 +74,9 @@ public class LoadingView extends View {
 
     //成功失败的画笔
     Paint textPaint;
-    int textPaintColor;
-    float textPaintStrokeWidth;
-    float textPaintTextSize;
+    int textPaintColor=Color.YELLOW;
+    float textPaintStrokeWidth=6;
+    float textPaintTextSize=60;
 
     //成功的动效
     ValueAnimator successvalueAnimator;
@@ -112,10 +112,10 @@ public class LoadingView extends View {
 
     private void initTypedArray(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.LoadingView);
-        backgroudColor=typedArray.getColor(R.styleable.LoadingView_backgroudColor, Color.parseColor("#66000000"));
-        mpaintColor = typedArray.getColor(R.styleable.LoadingView_mpaintColor, Color.BLUE);
+        backgroudColor = typedArray.getColor(R.styleable.LoadingView_backgroudColor, Color.parseColor("#66000000"));
+        mpaintColor = typedArray.getColor(R.styleable.LoadingView_mpaintColor, Color.parseColor("#FF008AFF"));
         mpaintStrokeWidth = typedArray.getFloat(R.styleable.LoadingView_mpaintStrokeWidth, 16);
-        textPaintColor = typedArray.getColor(R.styleable.LoadingView_textPaintColor, Color.BLUE);
+        textPaintColor = typedArray.getColor(R.styleable.LoadingView_textPaintColor, Color.parseColor("#FF008AFF"));
         textPaintStrokeWidth = typedArray.getFloat(R.styleable.LoadingView_textPaintStrokeWidth, 6);
         textPaintTextSize = typedArray.getFloat(R.styleable.LoadingView_textPaintTextSize, 60);
         radius = typedArray.getFloat(R.styleable.LoadingView_radius, 100);
@@ -150,18 +150,18 @@ public class LoadingView extends View {
     private void initPaint() {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.BLUE);
+        mPaint.setColor(mpaintColor);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
-        mPaint.setStrokeWidth(16);
+        mPaint.setStrokeWidth(mpaintStrokeWidth);
         mPaint.setStyle(Paint.Style.STROKE);
 
         textPaint = new Paint();
         textPaint.setAntiAlias(true);
-        textPaint.setColor(Color.BLUE);
+        textPaint.setColor(textPaintColor);
         textPaint.setStrokeCap(Paint.Cap.ROUND);
-        textPaint.setStrokeWidth(6);
+        textPaint.setStrokeWidth(textPaintStrokeWidth);
         textPaint.setStyle(Paint.Style.STROKE);
-        textPaint.setTextSize(60);
+        textPaint.setTextSize(textPaintTextSize);
 
         pos = new float[2];
         tan = new float[2];
@@ -386,14 +386,14 @@ public class LoadingView extends View {
 
     /**
      * 添加到activity的上层并执行动画
-     * @param activity
      *
+     * @param activity
      */
     public void addPartentViewStartLoading(Activity activity) {
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         //Activity中View布局的最祖宗布局,是一个FrameLayout,叫做DecorView,通过getWindow().getDecorView()可以获取到
         FrameLayout view = (FrameLayout) activity.getWindow().getDecorView();
-        view.addView(this,layoutParams);
+        view.addView(this, layoutParams);
         startLoading();
     }
 
@@ -437,6 +437,7 @@ public class LoadingView extends View {
 
     /**
      * 整个事件的消费来保证loading状态不可操作
+     *
      * @param event
      * @return
      */
@@ -447,6 +448,7 @@ public class LoadingView extends View {
 
     /**
      * 设置loading的背景颜色
+     *
      * @param backgroudColor
      */
     public void setBackgroudColor(int backgroudColor) {
@@ -454,7 +456,6 @@ public class LoadingView extends View {
     }
 
     /**
-     *
      * @param mpaintColor
      */
     public void setMpaintColor(int mpaintColor) {
@@ -462,7 +463,6 @@ public class LoadingView extends View {
     }
 
     /**
-     *
      * @param mpaintStrokeWidth
      */
     public void setMpaintStrokeWidth(float mpaintStrokeWidth) {
@@ -470,7 +470,6 @@ public class LoadingView extends View {
     }
 
     /**
-     *
      * @param textPaintColor
      */
     public void setTextPaintColor(int textPaintColor) {
@@ -478,7 +477,6 @@ public class LoadingView extends View {
     }
 
     /**
-     *
      * @param textPaintStrokeWidth
      */
     public void setTextPaintStrokeWidth(float textPaintStrokeWidth) {
@@ -486,7 +484,6 @@ public class LoadingView extends View {
     }
 
     /**
-     *
      * @param textPaintTextSize
      */
     public void setTextPaintTextSize(float textPaintTextSize) {
@@ -494,7 +491,6 @@ public class LoadingView extends View {
     }
 
     /**
-     *
      * @param radius
      */
     public void setRadius(float radius) {
@@ -502,7 +498,6 @@ public class LoadingView extends View {
     }
 
     /**
-     *
      * @param circleRadius
      */
     public void setCircleRadius(float circleRadius) {
@@ -510,7 +505,6 @@ public class LoadingView extends View {
     }
 
     /**
-     *
      * @param roundCount
      */
     public void setRoundCount(int roundCount) {
@@ -518,11 +512,10 @@ public class LoadingView extends View {
     }
 
     /**
-     *
      * @param mcurrentType
      */
-    public void setType(Type mcurrentType){
-        this.mcurrentType=mcurrentType;
+    public void setType(Type mcurrentType) {
+        this.mcurrentType = mcurrentType;
     }
 
 }

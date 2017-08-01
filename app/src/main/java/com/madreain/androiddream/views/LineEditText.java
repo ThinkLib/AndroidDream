@@ -25,7 +25,7 @@ public class LineEditText extends EditText {
         paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
         //可以自定义画笔的颜色，我这里设置成黑色
-        paint.setColor(getResources().getColor(R.color.MBottom));
+        paint.setColor(getResources().getColor(R.color.MainColor));
     }
 
     @Override

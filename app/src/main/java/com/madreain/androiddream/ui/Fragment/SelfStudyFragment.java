@@ -24,11 +24,9 @@ import com.madreain.androiddream.ui.Activity.ShareKnowledgeActivity;
 import com.madreain.androiddream.ui.Activity.VideoListActivity;
 import com.madreain.androiddream.utils.NetworkUtils;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.bmob.v3.datatype.BmobFile;
 
 /**
  * 自学内容

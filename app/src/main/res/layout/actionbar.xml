@@ -9,7 +9,7 @@
         android:id="@+id/txt_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp40"
-        android:background="@color/MBottom"
+        android:background="@color/MainColor"
         android:gravity="center"
         android:text="@string/txt_set"
         android:textColor="@color/White"

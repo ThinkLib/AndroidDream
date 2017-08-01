@@ -45,7 +45,7 @@
         android:paddingRight="@dimen/dp10"
         android:paddingStart="@dimen/dp10"
         android:lines="1"
-        android:textColor="@color/MBottom"
+        android:textColor="@color/MainColor"
         tools:text="qqqqqqqqq"
         android:textSize="@dimen/sp10" />
 
@@ -66,7 +66,7 @@
         android:paddingStart="@dimen/dp10"
         tools:text="qqqqqqqqq"
         android:lines="1"
-        android:textColor="@color/MBottom"
+        android:textColor="@color/MainColor"
         android:textSize="@dimen/sp10" />
 
 </RelativeLayout>
